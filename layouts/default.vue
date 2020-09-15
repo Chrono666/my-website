@@ -67,7 +67,6 @@
 export default {
   data() {
     return {
-      drawer: false,
       items: [
         {
           icon: 'mdi-home',
@@ -96,7 +95,7 @@ export default {
   display: none;
   max-width: 50%;
 }
-@media (min-width: 750px) {
+@media (min-width: 1300px) {
   .drawer-toggle {
     display: none;
   }
