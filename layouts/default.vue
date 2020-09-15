@@ -67,6 +67,7 @@
 export default {
   data() {
     return {
+      drawer: false,
       items: [
         {
           icon: 'mdi-home',
