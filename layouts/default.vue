@@ -85,7 +85,7 @@ export default {
           to: '/projects',
         },
       ],
-      title: 'Matthias Schmid-Kietreiber',
+      title: 'MReiber',
     }
   },
 }

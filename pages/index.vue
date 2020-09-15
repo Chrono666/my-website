@@ -1,13 +1,13 @@
 <template>
   <v-container style="margin-top: 10%">
-    <v-row>
+    <v-row justify="center" align="center">
       <v-col cols="12" sm="6">
         <section>
-          <div>
+          <div class="headingText">
             <h1><u>Hi there,👋</u></h1>
             <h1>happy to see you here!</h1>
           </div>
-          <div>
+          <div class="normalText">
             <p>
               My name is Matthias and I'm a computer science student from
               austria.
@@ -26,7 +26,6 @@
               engineering to information technology, the best decision of my
               life so far!
             </p>
-            <p>I love to learn new things and especialy in developing</p>
           </div>
         </section>
       </v-col>
@@ -37,9 +36,99 @@
         />
       </v-col>
     </v-row>
+    <v-row style="margin-top: 40px" justify="center">
+      <h1 class="text-center">Skills</h1>
+    </v-row>
+    <v-row>
+      <p>
+        Always happy to learn new things, most of my skills are self taught
+        through completing a project for school.
+      </p>
+    </v-row>
+    <v-row justify="right" align="right">
+      <v-col
+        v-for="skill in skills"
+        :key="skill"
+        cols="12"
+        sm="4"
+        class="normalText"
+      >
+        {{ skill.tile }}
+        <v-spacer />
+        <v-progress-linear
+          v-model="skill.progress"
+          color="green"
+          height="25"
+          rounded
+        >
+          <template v-slot="{ value }">
+            <strong>{{ Math.ceil(value) }}%</strong>
+          </template>
+        </v-progress-linear>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      star: 'mdi-star',
+      starOutline: 'mdi-star-outline',
+      skills: [
+        {
+          tile: 'Java',
+          progress: 70,
+        },
+        {
+          tile: 'Spring',
+          progress: 50,
+        },
+        {
+          tile: 'Hibernate',
+          progress: 50,
+        },
+        {
+          tile: 'C',
+          progress: 40,
+        },
+        {
+          tile: 'SQL',
+          progress: 60,
+        },
+        {
+          tile: 'Javascript',
+          progress: 30,
+        },
+        {
+          tile: 'HTML',
+          progress: 50,
+        },
+        {
+          tile: 'CSS',
+          progress: 50,
+        },
+        {
+          tile: 'Vue',
+          progress: 75,
+        },
+        {
+          tile: 'NUXT',
+          progress: 75,
+        },
+      ],
+    }
+  },
+}
 </script>
+
+<style scoped>
+.headingText {
+  font-size: 40px !important;
+}
+
+.normalText {
+  font-size: 25px !important;
+}
+</style>
