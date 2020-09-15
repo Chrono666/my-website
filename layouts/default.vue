@@ -5,6 +5,7 @@
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
+          class="drawer-toggle"
           :to="item.to"
           router
           exact
@@ -18,17 +19,46 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title v-text="title" />
+    <v-app-bar
+      fixed
+      app
+      shrink-on-scroll
+      :src="require('@/assets/images/sun_rise.jpg')"
+    >
+      <v-app-bar-nav-icon
+        class="drawer-toggle"
+        @click.stop="drawer = !drawer"
+      />
+      <v-toolbar-title @click="$router.push('/')" v-text="title" />
+      <v-spacer />
+      <v-tabs
+        class="navigation-items"
+        hide-slider
+        color="blue"
+        right
+        icons-and-text
+        show-arrows
+      >
+        <v-tab
+          v-for="(item, i) in items"
+          :key="i"
+          style="font-size: 25px"
+          :to="item.to"
+          router
+          exact
+        >
+          <v-icon>{{ item.icon }}</v-icon>
+          {{ item.title }}
+        </v-tab>
+      </v-tabs>
     </v-app-bar>
     <v-main>
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer fixed app>
+      <span>MReiber &copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
@@ -37,9 +67,7 @@
 export default {
   data() {
     return {
-      clipped: false,
       drawer: false,
-      fixed: false,
       items: [
         {
           icon: 'mdi-home',
@@ -57,9 +85,23 @@ export default {
           to: '/projects',
         },
       ],
-      miniVariant: false,
       title: 'Matthias Schmid-Kietreiber',
     }
   },
 }
 </script>
+
+<style scoped>
+.navigation-items {
+  display: none;
+  max-width: 50%;
+}
+@media (min-width: 750px) {
+  .drawer-toggle {
+    display: none;
+  }
+  .navigation-items {
+    display: block;
+  }
+}
+</style>
