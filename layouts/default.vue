@@ -29,7 +29,11 @@
         class="drawer-toggle"
         @click.stop="drawer = !drawer"
       />
-      <v-toolbar-title @click="$router.push('/')" v-text="title" />
+      <v-toolbar-title
+        class="title"
+        @click="$router.push('/')"
+        v-text="title"
+      />
       <v-spacer />
       <v-tabs
         class="navigation-items"
@@ -50,6 +54,9 @@
           <v-icon>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-tab>
+        <v-btn icon @click="goDark = !goDark">
+          <v-icon>mdi-brightness-4</v-icon>
+        </v-btn>
       </v-tabs>
     </v-app-bar>
     <v-main>
@@ -57,14 +64,16 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer fixed app>
-      <span>MReiber &copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
 <script>
+import Footer from '@/components/Navigation/Footer'
 export default {
+  components: {
+    Footer,
+  },
   data() {
     return {
       drawer: false,
@@ -76,7 +85,7 @@ export default {
         },
         {
           icon: 'mdi-script-text-outline',
-          title: 'Curriculum Vitae',
+          title: 'Resume',
           to: '/cv',
         },
         {
@@ -92,10 +101,17 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  font-size: 30px !important;
+  font-weight: bold !important;
+  color: white !important;
+}
+
 .navigation-items {
   display: none;
   max-width: 50%;
 }
+
 @media (min-width: 1300px) {
   .drawer-toggle {
     display: none;

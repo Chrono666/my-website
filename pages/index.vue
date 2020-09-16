@@ -40,15 +40,9 @@
       <h1 class="text-center">Skills</h1>
     </v-row>
     <v-row>
-      <p>
-        Always happy to learn new things, most of my skills are self taught
-        through completing a project for school.
-      </p>
-    </v-row>
-    <v-row justify="right" align="right">
       <v-col
-        v-for="skill in skills"
-        :key="skill"
+        v-for="(skill, i) in skills"
+        :key="i"
         cols="12"
         sm="4"
         class="normalText"
@@ -110,11 +104,11 @@ export default {
           progress: 50,
         },
         {
-          tile: 'Vue',
+          tile: 'Vue.js',
           progress: 75,
         },
         {
-          tile: 'NUXT',
+          tile: 'NUXT.js',
           progress: 75,
         },
       ],
