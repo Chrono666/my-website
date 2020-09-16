@@ -77,23 +77,7 @@ export default {
   data() {
     return {
       drawer: false,
-      items: [
-        {
-          icon: 'mdi-home',
-          title: 'Home',
-          to: '/',
-        },
-        {
-          icon: 'mdi-script-text-outline',
-          title: 'Resume',
-          to: '/cv',
-        },
-        {
-          icon: 'mdi-code-tags',
-          title: 'Projects',
-          to: '/projects',
-        },
-      ],
+      items: this.$store.getters.getNavBarItems,
       title: 'MReiber',
     }
   },
