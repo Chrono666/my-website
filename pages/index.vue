@@ -27,6 +27,17 @@
               life so far!
             </p>
           </div>
+          <div>
+            <h3 class="headingText">Looking for work!</h3>
+            <p class="normalText">
+              To improve my skills, and to gather professional experience I'm
+              currently looking for a 20 to 25 hour job located in vienna
+              Austria. If you are looking for someone to help your developer
+              team, someone that is motivated and eager to learn please feel
+              free to
+              <a href="mailto:matthias.schmid.k@web.de">contact</a> me!
+            </p>
+          </div>
         </section>
       </v-col>
       <v-col cols="12" sm="6">
@@ -70,48 +81,7 @@ export default {
     return {
       star: 'mdi-star',
       starOutline: 'mdi-star-outline',
-      skills: [
-        {
-          tile: 'Java',
-          progress: 70,
-        },
-        {
-          tile: 'Spring',
-          progress: 50,
-        },
-        {
-          tile: 'Hibernate',
-          progress: 50,
-        },
-        {
-          tile: 'C',
-          progress: 40,
-        },
-        {
-          tile: 'SQL',
-          progress: 60,
-        },
-        {
-          tile: 'Javascript',
-          progress: 30,
-        },
-        {
-          tile: 'HTML',
-          progress: 50,
-        },
-        {
-          tile: 'CSS',
-          progress: 50,
-        },
-        {
-          tile: 'Vue.js',
-          progress: 75,
-        },
-        {
-          tile: 'NUXT.js',
-          progress: 75,
-        },
-      ],
+      skills: this.$store.getters.getSkills,
     }
   },
 }

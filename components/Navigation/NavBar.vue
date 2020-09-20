@@ -34,8 +34,10 @@
     </v-tabs>
   </v-app-bar>
 </template>
+
 <script>
 import SideNav from '@/components/Navigation/SideNav'
+
 export default {
   components: { SideNav },
   data() {
@@ -64,6 +66,7 @@ export default {
   .drawer-toggle {
     display: none;
   }
+
   .navigation-items {
     display: block;
   }
